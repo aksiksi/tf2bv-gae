@@ -1,0 +1,82 @@
+{% extends "search.html" %}
+
+<!-- Results -->
+{% block results %}
+    <!-- Begin player info -->
+    <div class="well">
+        <h2>Player Information</h2>
+        {% if player %}
+            {% for key in player %}
+                {% if key == 'Avatar' %}
+                    <p><strong>{{ key }}: </strong>
+                    <br />
+                    <img src="{{ player[key] }}" />
+                {% elif key == 'Profile' %}
+                    <p><strong>{{ key }}: </strong><a href="{{ player[key] }}">{{ player[key] }}</a></p>
+                {% else %}
+                    <p><strong>{{ key }}: </strong>{{ player[key] }}</p>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>Invalid ID entered.</p>
+        {% endif %}
+    </div>
+    <!-- End player info -->
+
+    <!-- Begin backpack contents -->
+    <div class="well">
+        <h2>Backpack</h2>
+        {% if not items %}
+            <p>Invalid ID entered.</p>
+        {% elif items == -1 %}
+            <p>User's backpack is private.</p>
+        {% elif items == -2 %}
+            <p>User's backpack is empty.</p>
+        {% else %}
+            <h3>Tips</h3>
+            <ul>
+                <li>If an item's ID and Original ID are the same, know that the user got the item themselves.</li>
+                <li>The identifier value identifies the item, so searching for a identifier in a backpack will return the same item(s).</li>
+                <li>Click on a header to sort the items by that property.</li>
+            </ul>
+            <table id="results" class="table table-sorter">
+                <!-- Write headers (dict keys) to table head -->
+                <thead>
+                    <tr>
+                        {% for header in items[0][0] %}
+                            <th>{{ header }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                <!-- Write item data (dict values) to table body -->
+                {% for item in items[0] %}
+                    <tr id="{{ item['Quality'] }}">
+                        {% for key, value in item.items() %}
+                            {% if key == 'Image' %}
+                                <td><img src="{{ value }}" height="60px"/></td>
+                            {% else %}
+                                <td>{{ value }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+    <!-- End backpack contents -->
+
+    <!-- Begin time and info-->
+    <div class="well">
+        <h2>Numbers</h2>
+        {% if items > 0 %}
+            <p>Item data last requested on {{ items[1] }}.</p>
+        {% endif %}
+        {% if player %}
+            <p>Player data is fresh.</p>
+        {% endif %}
+        <p>Info retrieved in {{ time }} seconds. Rendering time not included.</p>
+    </div>
+    <!-- End time and info-->
+{% endblock %}

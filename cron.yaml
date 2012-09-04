@@ -1,0 +1,4 @@
+cron:
+- description: get tf2 item schema
+  url: /update
+  schedule: every 1 hours
