@@ -29,3 +29,8 @@ Bugs or errors
 --------------
 
 Please use the issues tracker to report any bugs you encounter.
+
+Thanks
+------
+
+Francisco Souza, whose [blog post](http://f.souza.cc/2010/08/flying-with-flask-on-google-app-engine.html) on deploying a Flask app to GAE was a real help ingetting this done.
