@@ -1,11 +1,15 @@
 application: tf2-bv
-version: 1
-runtime: python
+version: 2
+runtime: python27
 api_version: 1
+threadsafe: no
 
 handlers:
 - url: /update
   script: update.py
   login: admin
+- url: /favicon\.ico
+  static_files: application/static/images/favicon.ico
+  upload: application/static/images/favicon\.ico
 - url: .*
   script: main.py

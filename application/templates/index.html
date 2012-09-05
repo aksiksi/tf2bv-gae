@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+<!-- Document title -->
+{% block title %}Home{% endblock %}
+
+<!-- Navbar -->
+{% block links %}
+<ul class="nav">
+    <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+    <li><a href="{{ url_for('search') }}">Search</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
+</ul>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+<!-- Begin hero unit -->
+        <div class="hero-unit">
+            <h1>TF2 Backpack Viewer</h1>
+            <p>Grab TF2 items from any user's backpack, in style.</p>
+            <p>
+                <a class="btn btn-primary btn-large" href="{{ url_for('search') }}">
+                    Start a search now
+                </a>
+                or simply use the search bar at the top of the page.
+            </p>
+        </div>
+        <!-- End hero unit -->
+        
+        <!-- Begin content -->
+        <div class="well">
+            <h2>News</h2>
+            <h3>Minor updates, /bp/profile added</h3>
+            <p>
+                I've made some minor updates to the site. One of the major ones 
+                is the ability to access backpack data through a URL. Simply
+                visit the homepage and then append <em>/bp/(profile name)</em> to the URL, where <em>(profile name)</em> is a valid Steam Profile ID (not a SteamID).
+            </p>
+            <p>Enjoy.</p>
+            <hr />
+            <h3>Finally, it's complete.</h3>
+            <p>I've added as much functionality to the site as I currently can. Enjoy it, and please help by reporting bugs or issues.</p>
+        </div>
+        <!-- End content -->
+{% endblock %}
