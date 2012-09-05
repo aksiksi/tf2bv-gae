@@ -5,12 +5,12 @@ A Google App Engine version of my tf2-backpack-viewer repo.
 
 No dependencies - simply upload the whole thing to your account using the Google App Engine SDK.
 
-See it in action: [2.tf2-bv.appspot.com](2.tf2-bv.appspot.com)
+See it in action: [2.tf2-bv.appspot.com](http://2.tf2-bv.appspot.com)
 
 Structure
 ---------
 
-```root:
+``root:
 	- flask
 
 	- werkzeug
@@ -37,4 +37,4 @@ Structure
 
 	- main.py = runs the Flask app using the GAE WSGI server
 
-	- update.py = grabs the TF2 item schema every hour and stores it in memcache```
+	- update.py = grabs the TF2 item schema every hour and stores it in memcache``
