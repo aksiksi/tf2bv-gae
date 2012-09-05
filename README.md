@@ -8,7 +8,7 @@ No dependencies - simply upload the whole thing to your account using the Google
 Structure
 ---------
 
-`root:
+```root:
 	- flask
 
 	- werkzeug
@@ -35,4 +35,4 @@ Structure
 
 	- main.py = runs the Flask app using the GAE WSGI server
 
-	- update.py = grabs the TF2 item schema every hour and stores it in memcache`
+	- update.py = grabs the TF2 item schema every hour and stores it in memcache```
