@@ -10,7 +10,7 @@ See it in action: [2.tf2-bv.appspot.com](http://2.tf2-bv.appspot.com)
 Structure
 ---------
 
-`root:
+root:
 	- flask
 
 	- werkzeug
