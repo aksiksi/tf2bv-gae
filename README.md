@@ -11,13 +11,9 @@ Structure
 ---------
 
 	- flask
-
 	- werkzeug
- 
 	- simplejson = jinja2 dependency
- 
 	- jinja2
- 
 	- application = contains the app's files, templates etc.
  
 		* templates = contains jinja2 templates
