@@ -4,6 +4,8 @@
         <title>{% block title %}{% endblock %} - TF2BV</title>
         <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
         <link rel="shortcut icon" href="static/images/favicon.ico" />
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery-latest.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='fontsize.js') }}"></script>
         {% block js %}{% endblock %}
     </head>
     <body>
@@ -17,13 +19,19 @@
                     {% block links %}{% endblock %}
 
                     <form action="{{ url_for('result') }}" class="navbar-search pull-left">
-                        <input name="s" type="text" class="search-query" placeholder="Enter an ID..">
-                        <select name="t" id="select01">
+                        <input style="margin-bottom: 5px;" name="s" type="text" class="search-query" placeholder="Enter an ID..">
+                        <select style="margin-bottom: 5px;" name="t" id="select01">
                             <option value="profile">Profile Name</option>
                             <option value="steamid64">SteamID 64</option>
                             <option value="steamid">SteamID</option>
                         </select>
                     </form>
+
+                    <!-- Allow users to modify font size -->
+                    <button style="margin-right: 10px;" class="decreaseFont btn pull-right">Font -</button>
+                    <button style="margin-right: 10px;" class="increaseFont btn pull-right">Font +</button>
+                    <button style="margin-right: 10px;" class="defaultFont btn pull-right">Default</button>
+                    <p style="padding-top: 10px; padding-right: 10px;" class="pull-right">Change font size:</p>
                 </div>
             </div>
         </div>
@@ -42,7 +50,7 @@
                alt="powered by Flask"
                title="powered by Flask"></a>
            </p>
-           <p>Today's date: {{ date }}</p>
+           <p>Date and time: <b>{{ date }}</b></p>
         </div>
         <!-- End footer -->
     </body>
